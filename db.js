@@ -1,15 +1,15 @@
 import "dotenv/config";
 
 export const config = {
-  
-    url: "postgresql://burgertic_owner:V43yvkmxXzMS@ep-broad-sun-a5jxy499.us-east-2.aws.neon.tech/burgertic?sslmode=require",
-    user: "burgertic_owner",//process.env.DB_USER,
-    host: "ep-broad-sun-a5jxy499.us-east-2.aws.neon.tech",//process.env.DB_HOST,
-    database: "burgertic",//process.env.DB_NAME,
-    password: "V43yvkmxXzMS",//process.env.DB_PASSWORD,
-    port: 5432,
-    ssl: true
+    url: "postgresql://Burgertic_owner:EOYSXm50byvz@ep-fancy-night-a5d23gyx.us-east-2.aws.neon.tech/Burgertic?sslmode=require",
+    user: "Lautaro", // Tu usuario de base de datos
+    host: "ep-broad-sun-a5d23gyx.us-east-2.aws.neon.tech", // El host de la base de datos
+    database: "Burgertic", // El nombre de tu base de datos
+    password: "EOYSXm50byvz", // La contraseña de tu base de datos
+    port: 5432, // El puerto de PostgreSQL (por defecto es 5432)
+    ssl: true, // SSL habilitado para conexiones seguras
 };
+
 
 import { Sequelize } from "sequelize";
 

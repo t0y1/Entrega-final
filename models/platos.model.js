@@ -25,7 +25,7 @@ Plato.init(
     },
     {
         sequelize,
-        modelName: "platos",
+        modelName: "Platos",
         timestamps: false,
     }
 );

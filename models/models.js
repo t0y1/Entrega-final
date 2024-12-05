@@ -4,6 +4,8 @@ import { Plato } from "./platos.model.js";
 import { PlatosxPedidos } from "./platosxpedidos.model.js";
 import { Usuarios } from "./usuarios.model.js"
 
+
+
 export const defModelos = async()=>{
     Pedidos.belongsTo(Usuarios, { foreignKey: 'UsuarioId' });
     Usuarios.hasMany(Pedidos,{ foreignKey: 'UsuarioId' });
@@ -21,3 +23,8 @@ export const defModelos = async()=>{
         PlatosxPedidos.belongsTo(Pedidos, { foreignKey: "PedidoId", as: "pedido" });
         
 }  
+sequelize.sync()
+    .then(() => {
+    })
+    .catch((error) => {
+    });
