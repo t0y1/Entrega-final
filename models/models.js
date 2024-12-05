@@ -25,6 +25,7 @@ export const defModelos = async()=>{
 }  
 sequelize.sync()
     .then(() => {
+        console.log("Puedes Empezar")
     })
     .catch((error) => {
     });
