@@ -2,6 +2,7 @@ import { Pedidos } from '../models/pedidos.model.js';
 import { Plato } from '../models/platos.model.js';
 import { PlatosxPedidos as PlatosXPedidos } from '../models/platosxpedidos.model.js';
 import { Usuarios } from '../models/usuarios.model.js';
+import { DataTypes } from 'sequelize'; 
 
 const getPlatosByPedido = async (idPedido) => {
     const platosXPedidos = await PlatosXPedidos.findAll({
@@ -54,37 +55,23 @@ const getPedidosByUser  = async (UsuarioId) => {
 };
 
 const createPedido = async (platos, userid, id, cantidad) => {
-     await Pedidos.create({
-        fecha: DataTypes.DATE,
+    const pedido = await Pedidos.create({
+        fecha: new Date(), // Asigna la fecha actual
         estado: "pendiente",
-        UsuarioId: userid
+        UsuarioId: userid,
     });
+    const Pid = pedido.id;
 
     platos.forEach(() => {
          PlatosXPedidos.create({
-            PedidoId: pedido.id, 
+            PedidoId: Pid, 
             platoId: id,
             cantidad: cantidad,
         });
     });
     
     return pedido;
-  /*  const pedido = await Pedido.create({
-    UsuarioId: idUsuario,
-    fecha: new Date(),
-    estado: "pendiente",
-  });
-
-  const platosData = platos.map((plato) => ({
-    idPedido: pedido.id,
-    idPlato: plato.id,
-    cantidad: plato.cantidad,
-  }));
-
-  await PedidosPlatos.bulkCreate(platosData);
-  */
-
-  return pedido;
+  
 };
 
 const updatePedido = async (id, estado) => {

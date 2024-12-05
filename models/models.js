@@ -17,6 +17,7 @@ export const defModelos = async()=>{
         as: 'pedidos',});
         console.log("Pase x defModelos");
   
-    Pedidos.hasMany(Plato,{foreignKey: "platoId"}, {through: PlatosxPedidos})
-
+        Pedidos.hasMany(PlatosxPedidos, { foreignKey: "PedidoId", as: "platosxpedidos" });
+        PlatosxPedidos.belongsTo(Pedidos, { foreignKey: "PedidoId", as: "pedido" });
+        
 }  

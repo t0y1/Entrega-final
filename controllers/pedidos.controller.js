@@ -35,18 +35,18 @@ const getPedidoById = async (req, res) => {
 };
 
 const createPedido = async (req, res) => {
-    const platos = req.body.platos;
+    const plato = req.body.platos;
 
     console.log ("pase por el createPedido")
 
-    if (!platos)
+    if (!plato)
         return res
             .status(400)
             .json({ message: "Se necesita al menos un plato" });
 
     let error = false;
 
-    platos.forEach((platos) => {
+    plato.forEach((platos) => {
         if (!platos.id || !platos.cantidad) {
             res.status(400).json({
                 message: "Los platos deben tener un ID y una cantidad",
@@ -59,10 +59,10 @@ const createPedido = async (req, res) => {
 
     console.log(req.idUsuario)
     try {
-        platos.forEach((platos) => {
+        plato.forEach((platos) => {
 
         console.log("pie")
-         PedidosService.createPedido(platos,req.idUsuario, platos.id, platos.cantidad);
+         PedidosService.createPedido(plato,req.idUsuario, platos.id, platos.cantidad);
         res.json({ message: "Pedido creado con éxito" });});
     } catch (error) {
         res.status(500).json({ message: error.message });
