@@ -3,7 +3,7 @@ import "dotenv/config";
 export const config = {
     url: "postgresql://Burgertic_owner:EOYSXm50byvz@ep-fancy-night-a5d23gyx.us-east-2.aws.neon.tech/Burgertic?sslmode=require",
     user: "Lautaro", // Tu usuario de base de datos
-    host: "ep-broad-sun-a5d23gyx.us-east-2.aws.neon.tech", // El host de la base de datos
+    host: "ep-fancy-night-a5d23gyx.us-east-2.aws.neon.tech", // El host de la base de datos
     database: "Burgertic", // El nombre de tu base de datos
     password: "EOYSXm50byvz", // La contraseña de tu base de datos
     port: 5432, // El puerto de PostgreSQL (por defecto es 5432)

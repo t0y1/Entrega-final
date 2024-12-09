@@ -23,9 +23,3 @@ export const defModelos = async()=>{
         PlatosxPedidos.belongsTo(Pedidos, { foreignKey: "PedidoId", as: "pedido" });
         
 }  
-sequelize.sync()
-    .then(() => {
-        console.log("Puedes Empezar")
-    })
-    .catch((error) => {
-    });
