@@ -17,5 +17,5 @@ app.use("/auth", AuthRouter);
 app.use("/pedidos", PedidosRouter);
 
 app.listen(process.env.PORT || 9000, () =>
-    console.log(`Server is running on port ${process.env.PORT || 9000}`)
+    console.log(`Server is running on port ${process.env.PORT || 9000}` + ", Ya puedes empezar")
 );
