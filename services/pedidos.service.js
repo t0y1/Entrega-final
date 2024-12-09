@@ -54,25 +54,26 @@ const getPedidosByUser  = async (UsuarioId) => {
     return pedidos;
 };
 
-const createPedido = async (platos, userid, id, cantidad) => {
+const createPedido = async (platos, userid) => {
+    // Crea el pedido
     const pedido = await Pedidos.create({
         fecha: new Date(), // Asigna la fecha actual
         estado: "pendiente",
         UsuarioId: userid,
     });
-    const Pid = pedido.id;
 
-    platos.forEach(() => {
-         PlatosXPedidos.create({
-            PedidoId: Pid, 
-            platoId: id,
-            cantidad: cantidad,
+    // Itera sobre los platos y los asocia al pedido
+    for (const plato of platos) {
+        await PlatosXPedidos.create({
+            PedidoId: pedido.id,
+            platoId: plato.id,
+            cantidad: plato.cantidad,
         });
-    });
-    
+    }
+
     return pedido;
-  
 };
+
 
 const updatePedido = async (id, estado) => {
    

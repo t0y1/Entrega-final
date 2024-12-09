@@ -58,15 +58,15 @@ const createPedido = async (req, res) => {
     if (error) return;
 
     console.log(req.idUsuario)
-    try {
-        plato.forEach((platos) => {
+    const platos = req.body.platos;
 
-        console.log("pie")
-         PedidosService.createPedido(plato,req.idUsuario, platos.id, platos.cantidad);
-        res.json({ message: "Pedido creado con éxito" });});
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+try {
+    const pedido = await PedidosService.createPedido(platos, req.idUsuario);
+    res.json({ message: "Pedido creado con éxito", pedido });
+} catch (error) {
+    res.status(500).json({ message: error.message });
+}
+
 };
 
 const aceptarPedido = async (req, res) => {
